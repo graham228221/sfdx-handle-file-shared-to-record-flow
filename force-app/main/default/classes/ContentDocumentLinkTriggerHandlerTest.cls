@@ -13,9 +13,26 @@ private class ContentDocumentLinkTriggerHandlerTest {
 
         insert acct;
 
+        Opportunity opp = new Opportunity(
+            Name = 'This is a test',
+            AccountId = acct.Id,
+            StageName = 'Closed Won',
+            CloseDate = Date.today()
+        );
+
+        insert opp;
+
+        Invoice__c inv = new Invoice__c(
+            Name = 'TEST-12345',
+            Account__c = acct.Id,
+            Opportunity__c = opp.Id
+        );
+
+        insert inv;
+
         // create a file, unshared to any record
         ContentVersion file = new ContentVersion(
-            Title = 'Test File',
+            Title = 'Invoice TEST-12345',
             PathOnClient = 'file.txt',
             VersionData = Blob.valueOf( 'Hello World' )
         );
@@ -30,30 +47,33 @@ private class ContentDocumentLinkTriggerHandlerTest {
         // share the file to the account
         ContentDocumentLink cdl = new ContentDocumentLink(
             ContentDocumentId = file.ContentDocumentId,
-            LinkedEntityId = acct.Id,
+            LinkedEntityId = inv.Id,
             ShareType = 'I'
         );
 
-        insert cdl; // trigger fires
+                // create a second file, unshared to any record
+                ContentVersion file2 = new ContentVersion(
+                    Title = 'Invoice TEST-12345 V2',
+                    PathOnClient = 'file.txt',
+                    VersionData = Blob.valueOf( 'Hello World' )
+                );
+        
+                insert file2;
+        
+                // query the generated content document id
+                file2 = [ SELECT Id, ContentDocumentId FROM ContentVersion WHERE Id = :file.Id ];
+        
+                // share the file to the account
+                ContentDocumentLink cdl2 = new ContentDocumentLink(
+                    ContentDocumentId = file2.ContentDocumentId,
+                    LinkedEntityId = inv.Id,
+                    ShareType = 'I'
+                );
+
+        insert cdl2; // trigger fires
 
         Test.stopTest();
 
-        // Unless you've changed the "Handle File Shared To Record Flow" flow,
-        // then it should have posted a chatter message to the record.
-        // If you customize the flow, you'll need to modify this test logic too.
-        List<FeedItem> posts = new List<FeedItem>([
-            SELECT Id, Body
-            FROM FeedItem
-            WHERE ParentId = :acct.Id
-            ORDER BY CreatedDate DESC
-            LIMIT 10
-        ]);
-
-        Boolean postFound = false;
-        for ( FeedItem post : posts ) {
-            postFound = postFound || ( post.Body != null && post.Body.containsIgnoreCase( 'A file has been shared to this record' ) );
-        }
-        System.assert( postFound, 'Did not find Chatter post with message "A file has been shared to this record".' );
 
     }
 
