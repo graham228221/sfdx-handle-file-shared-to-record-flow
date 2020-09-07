@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Method__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES( Account__r.Invoice_Method__c ,&quot;E-Mail&quot;),&quot;E-Mail;&quot;,null)&amp;
+IF(INCLUDES(Account__r.Invoice_Method__c,&quot;Client Online Portal&quot;),&quot;Client Online Portal;&quot;,null)&amp;
+IF(INCLUDES(Account__r.Invoice_Method__c,&quot;Post&quot;),&quot;Post;&quot;,null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is populated from the Invoice Method field on Account</inlineHelpText>
+    <label>Invoice Method</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

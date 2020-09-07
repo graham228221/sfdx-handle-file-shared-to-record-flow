@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Fields_Not_Populated__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK( Account__r.Invoice_Method__c ) 
+|| ISBLANK(  Account__r.Invoice_To_Contact__c  )
+|| ISBLANK(  Account__r.BillingAddress )
+|| ISBLANK( TEXT( Account__r.Payment_Terms_Days__c)  )
+|| ISBLANK( TEXT( Account__r.VAT_Applicable__c)  )
+|| ISBLANK(  QuickBooks_Nominal_Code__c  )
+,true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Fields Not Populated</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AtW_Claim_Form_P3_Signed_By_Us__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(TEXT(Account__r.AtW_Claim_Form_Signed_By_Us__c)=&apos;Yes&apos;,true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>AtW Claim Form: P3 Signed By Us?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

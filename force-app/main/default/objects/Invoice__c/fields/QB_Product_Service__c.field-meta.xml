@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QB_Product_Service__c</fullName>
+    <description>Was the following but needed to give it the QB ID found in Zapier: IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;420000&quot;), &quot;Sales B2B&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;422000&quot;), &quot;Sales B2PS&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;430000&quot;), &quot;Sales B2C&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;440000&quot;), &quot;Staff Revenue&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;445000&quot;), &quot;Sales National&quot;,
+NULL)))))</description>
+    <externalId>false</externalId>
+    <formula>IF ( Entity__c =&quot;SignVideo&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;420000&quot;), &quot;3&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;422000&quot;), &quot;6&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;430000&quot;), &quot;4&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;440000&quot;), &quot;8&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;445000&quot;), &quot;9&quot;,
+ NULL)))))
+,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;420000&quot;), &quot;3&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;422000&quot;), &quot;4&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;430000&quot;), &quot;5&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;440000&quot;), &quot;7&quot;,
+ IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;445000&quot;), &quot;6&quot;,
+ NULL)))))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Converts the nominal to the Quickbooks Product/Service ID required for integration</inlineHelpText>
+    <label>QB Product/Service</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

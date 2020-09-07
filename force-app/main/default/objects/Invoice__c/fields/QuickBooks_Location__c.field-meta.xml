@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QuickBooks_Location__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;420000&quot;), &quot;1&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;422000&quot;), &quot;2&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;430000&quot;), &quot;3&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;440000&quot;), &quot;3&quot;,
+IF(ISPICKVAL(Account__r.QuickBooks_Nominal_Code__c, &quot;445000&quot;), &quot;4&quot;,
+NULL)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Converts QuickBooks Nominal Code on the Account record to the actual QB reference of the location (department):
+420000 = B2B = 1
+422000 = B2PS = 2
+430000 or 440000 = B2C = 3
+450000 = National = 4</inlineHelpText>
+    <label>QuickBooks Location</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Email_Template__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Entity__c ,
+&quot;SignVideo&quot;, &quot;00X63000001SeDiEAK&quot;,
+&quot;InterpreterNow&quot;, &quot;00X63000001SeEMEA0&quot;,
+&quot;Sign Language Interactions&quot;, &quot;00X63000001SeEREA0&quot; ,
+&quot;00X63000001SeDiEAK&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Invoice Email Template</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

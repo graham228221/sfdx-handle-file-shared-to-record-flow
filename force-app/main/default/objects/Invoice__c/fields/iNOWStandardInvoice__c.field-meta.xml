@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>iNOWStandardInvoice__c</fullName>
+    <description>##Conga created button:00b63000001VzBJ</description>
+    <externalId>false</externalId>
+    <formula>&quot;&amp;solmgr=1&quot; + 
+&quot;&amp;id=&quot; + Id +
+&quot;&amp;queryid=[ILI]0Q_000EAS612969,[ILICallPlan]0Q_003EAS498801,[ILIExcess]0Q_004EAS028555&quot; + 
+&quot;&amp;templateid=0T_002EAS797600&quot; + 
+&quot;&amp;defaultpdf=1&quot; + 
+&quot;&amp;sc1=SalesforceFile&quot; + 
+&quot;&amp;sc0=1&quot; + 
+&quot;&amp;ofn=Invoice &quot; + Name + TEXT(Invoice_Version__c) +
+&quot;&amp;liveeditvisible=1&quot; + 
+&quot;&amp;mfts0=Create_Conga_Invoice_PDF__c&quot; + 
+&quot;&amp;mftsvalue0=False&quot; + 
+&quot;&amp;uf0=1&quot; + 
+&quot;&amp;qmode=SalesforceFile&quot;</formula>
+    <label>iNOWStandardInvoice</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

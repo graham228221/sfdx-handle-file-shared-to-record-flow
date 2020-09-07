@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Template__c</fullName>
+    <externalId>false</externalId>
+    <label>Invoice Template</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SignVideo - AtW Template</fullName>
+                <default>false</default>
+                <label>SignVideo - AtW Template</label>
+            </value>
+            <value>
+                <fullName>SignVideo - Standard Template</fullName>
+                <default>false</default>
+                <label>SignVideo - Standard Template</label>
+            </value>
+            <value>
+                <fullName>InterpreterNow - AtW Template</fullName>
+                <default>false</default>
+                <label>InterpreterNow - AtW Template</label>
+            </value>
+            <value>
+                <fullName>InterpreterNow - Standard Template</fullName>
+                <default>false</default>
+                <label>InterpreterNow - Standard Template</label>
+            </value>
+            <value>
+                <fullName>Sign Language Interactions - AtW Template</fullName>
+                <default>false</default>
+                <label>Sign Language Interactions - AtW Template</label>
+            </value>
+            <value>
+                <fullName>Sign Language Interactions - Standard Template</fullName>
+                <default>false</default>
+                <label>Sign Language Interactions - Standard Template</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

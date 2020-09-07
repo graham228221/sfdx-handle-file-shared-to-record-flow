@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Approval_Required__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(Opportunity__r.Sales_Approval_of_Invoices__c,&quot;All Invoices&quot;),true,
+IF(ISPICKVAL(Opportunity__r.Sales_Approval_of_Invoices__c,&quot;First Invoice Only&quot;)&amp;&amp; Invoicing_Status_from_Opp__c =&quot;First&quot;,true,
+IF(Invoicing_Status_from_Opp__c =&quot;One-Off&quot;,true,false)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sales Approval Required</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

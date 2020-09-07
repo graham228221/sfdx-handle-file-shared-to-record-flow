@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoices_To_Be_Sent_Next_Month</fullName>
+    <columns>Invoice_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Invoice_Status__c</columns>
+    <columns>Account__c</columns>
+    <columns>No_of_Accounts__c</columns>
+    <columns>Invoice_From__c</columns>
+    <columns>Invoice_To__c</columns>
+    <columns>Minutes_Allowed__c</columns>
+    <columns>Minutes_Used__c</columns>
+    <columns>Excess_Minutes__c</columns>
+    <columns>Total__c</columns>
+    <columns>Purchase_Order_Number__c</columns>
+    <columns>Itemised_Invoice_Required__c</columns>
+    <columns>Invoice_Method__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Invoice_Date__c</field>
+        <operation>equals</operation>
+        <value>NEXT_MONTH</value>
+    </filters>
+    <filters>
+        <field>Invoice_Status__c</field>
+        <operation>equals</operation>
+        <value>New,Submitted for Approval,Approved</value>
+    </filters>
+    <label>z. Invoices To Be Sent Next Month</label>
+</ListView>
