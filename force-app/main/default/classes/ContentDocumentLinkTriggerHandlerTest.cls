@@ -30,7 +30,7 @@ private class ContentDocumentLinkTriggerHandlerTest {
 
         insert inv;
 
-        // create a file, unshared to any record
+        // create an invoice, unshared to any record
         ContentVersion file = new ContentVersion(
             Title = 'Invoice TEST-12345',
             PathOnClient = 'file.txt',
@@ -51,6 +51,8 @@ private class ContentDocumentLinkTriggerHandlerTest {
             ShareType = 'I'
         );
 
+        insert cdl; // trigger fires
+
                 // create a second file, unshared to any record
                 ContentVersion file2 = new ContentVersion(
                     Title = 'Invoice TEST-12345 V2',
@@ -61,7 +63,7 @@ private class ContentDocumentLinkTriggerHandlerTest {
                 insert file2;
         
                 // query the generated content document id
-                file2 = [ SELECT Id, ContentDocumentId FROM ContentVersion WHERE Id = :file.Id ];
+                file2 = [ SELECT Id, ContentDocumentId FROM ContentVersion WHERE Id = :file2.Id ];
         
                 // share the file to the account
                 ContentDocumentLink cdl2 = new ContentDocumentLink(
@@ -71,6 +73,48 @@ private class ContentDocumentLinkTriggerHandlerTest {
                 );
 
         insert cdl2; // trigger fires
+
+                        // create a usage file, unshared to any record
+                        ContentVersion file3 = new ContentVersion(
+                            Title = 'Invoice with usage details TEST-12345',
+                            PathOnClient = 'file.txt',
+                            VersionData = Blob.valueOf( 'Hello World' )
+                        );
+                
+                        insert file3;
+                
+                        // query the generated content document id
+                        file3 = [ SELECT Id, ContentDocumentId FROM ContentVersion WHERE Id = :file3.Id ];
+                
+                        // share the file to the account
+                        ContentDocumentLink cdl3 = new ContentDocumentLink(
+                            ContentDocumentId = file3.ContentDocumentId,
+                            LinkedEntityId = inv.Id,
+                            ShareType = 'I'
+                        );
+        
+                insert cdl3; // trigger fires
+
+                                        // create another usage file, unshared to any record
+                                        ContentVersion file4 = new ContentVersion(
+                                            Title = 'Invoice with usage details TEST-12345 v2',
+                                            PathOnClient = 'file.txt',
+                                            VersionData = Blob.valueOf( 'Hello World' )
+                                        );
+                                
+                                        insert file4;
+                                
+                                        // query the generated content document id
+                                        file4 = [ SELECT Id, ContentDocumentId FROM ContentVersion WHERE Id = :file4.Id ];
+                                
+                                        // share the file to the account
+                                        ContentDocumentLink cdl4 = new ContentDocumentLink(
+                                            ContentDocumentId = file4.ContentDocumentId,
+                                            LinkedEntityId = inv.Id,
+                                            ShareType = 'I'
+                                        );
+                        
+                                insert cdl4; // trigger fires
 
         Test.stopTest();
 
