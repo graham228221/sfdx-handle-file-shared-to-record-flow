@@ -47,7 +47,7 @@ public with sharing class ContentDocumentLinkTriggerHandler {
         String docType = ''; //we'll use this as our comparison string
 
         for (ContentDocumentLink cdl : cdls){
-            if(cdl.ContentDocument.Title.containsIgnoreCase('usage') || cdl.ContentDocument.Title.containsIgnoreCase('itemised') || cdl.ContentDocument.Title.containsIgnoreCase('log')) { //is it an itemised invoice?
+            if(cdl.ContentDocument.Title.containsIgnoreCase('usage ') || cdl.ContentDocument.Title.containsIgnoreCase('itemised ') || cdl.ContentDocument.Title.containsIgnoreCase('log ')) { //is it an itemised invoice?
                 cdl.Visibility = 'AllUsers';
                 docType = 'Itemised';
             } else if(cdl.ContentDocument.Title.startsWithIgnoreCase('Invoice ')) { //is it an invoice?
